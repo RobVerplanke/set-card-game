@@ -1,9 +1,9 @@
 .app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 main {
-  flex: 1; /* Give main the max. height */
+  flex: 1; /* Give maximum height to main */
 }
