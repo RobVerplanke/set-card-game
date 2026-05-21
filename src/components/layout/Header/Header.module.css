@@ -1,0 +1,30 @@
+header {
+  background-color: red;
+}
+
+.title {
+  color: white;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  background-color: orange;
+}
+
+.score {
+  color: white;
+}
+
+.timer {
+  color: white;
+}
+
+.buttons {
+  background-color: brown;
+}
+
+.buttons button {
+  padding: 5px;
+  color: black;
+}
