@@ -6,4 +6,8 @@ type GameTitle = {
   label: string;
 };
 
-export type { NavButtonProps, GameTitle };
+type PlayerName = {
+  label: string;
+};
+
+export type { NavButtonProps, GameTitle, PlayerName };
