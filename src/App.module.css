@@ -6,4 +6,9 @@
 
 main {
   flex: 1; /* Give maximum height to main */
+
+  /* Center gameboard */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
