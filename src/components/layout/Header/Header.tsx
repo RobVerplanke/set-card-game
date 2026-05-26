@@ -1,21 +1,32 @@
+import ScoreBoard from '../../elements/ScoreBoard';
+import TimeBoard from '../../elements/TimeBoard';
+import NavButton from '../../elements/NavButton';
+import GameTitle from '../../elements/GameTitle';
+
 import styles from './Header.module.css'; // CSS module
 
 export default function Header() {
   return (
     <header className={styles.header}>
-      {/* Game title */}
-      <h1 className={styles.title}>Title SET</h1>
+      {/* Game title component */}
+      <span className={styles.title}>
+        <GameTitle label="SET card game" />
+      </span>
 
-      {/* Game information */}
+      {/* Game information components */}
       <div className={styles.info}>
-        <span className={styles.score}>Score: 0</span>
-        <span className={styles.timer}>Time: 00:00</span>
+        <span className={styles.score}>
+          <ScoreBoard />
+        </span>
+        <span className={styles.timer}>
+          <TimeBoard />
+        </span>
       </div>
 
-      {/* Menu buttons */}
+      {/* Menu button components */}
       <div className={styles.buttons}>
-        <button>Nieuw spel</button>
-        <button>Spelregels</button>
+        <NavButton label="Nieuw spel" />
+        <NavButton label="Spelregels" />
       </div>
     </header>
   );
