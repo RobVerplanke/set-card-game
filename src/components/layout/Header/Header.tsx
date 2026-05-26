@@ -1,17 +1,20 @@
 import ScoreBoard from '../../elements/ScoreBoard';
 import TimeBoard from '../../elements/TimeBoard';
-import NavButton from '../../elements/NavButton';
+import NavButton from '../../elements/button/NavButton';
 import GameTitle from '../../elements/GameTitle';
-import { HEADER_TITLE } from '../../../constants';
 
-import styles from './Header.module.css'; // CSS module
+// Truly constants
+import * as constants from '../../../constants';
+
+// CSS module
+import styles from './Header.module.css';
 
 export default function Header() {
   return (
     <header className={styles.header}>
       {/* Game title component */}
       <span className={styles.title}>
-        <GameTitle label={HEADER_TITLE} />
+        <GameTitle label={constants.HEADER_TITLE} />
       </span>
 
       {/* Game information components */}
@@ -25,9 +28,9 @@ export default function Header() {
       </div>
 
       {/* Menu button components */}
-      <div className={styles.buttons}>
-        <NavButton label="Nieuw spel" />
-        <NavButton label="Spelregels" />
+      <div className={styles.buttonsContainer}>
+        <NavButton label={constants.NAV_BUTTON_NEW_GAME} />
+        <NavButton label={constants.NAV_BUTTON_RULES} />
       </div>
     </header>
   );

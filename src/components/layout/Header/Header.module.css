@@ -22,11 +22,6 @@ header {
   color: white;
 }
 
-.buttons {
+.buttonsContainer {
   background-color: brown;
-}
-
-.buttons button {
-  padding: 5px;
-  color: black;
 }
