@@ -1,4 +1,4 @@
-import ScoreBoard from '../../elements/header/ScoreBoard';
+import ScoreBoard from '../../elements/header/ScoreBoard/ScoreBoard';
 import TimeBoard from '../../elements/header/TimeBoard';
 import NavButton from '../../elements/button/NavButton';
 
