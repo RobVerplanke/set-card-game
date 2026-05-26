@@ -5,7 +5,7 @@ export default function ScoreBoard() {
     <div className={styles.ScoreBoard}>
       <span className={styles.score}>Score: 0</span>
       <br />
-      <span className={styles.pentalties}>Pentalties: 0</span>
+      <span className={styles.penalties}>Pentalties: 0</span>
     </div>
   );
 }

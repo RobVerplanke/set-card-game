@@ -1,5 +1,5 @@
 import ScoreBoard from '../../elements/header/ScoreBoard/ScoreBoard';
-import TimeBoard from '../../elements/header/TimeBoard';
+import TimeBoard from '../../elements/header/TimerBoard';
 import NavButton from '../../elements/button/NavButton';
 
 // Truly constants
@@ -18,7 +18,7 @@ export default function Header() {
       <span className={styles.name}>{constants.HEADER_PLAYER_NAME}</span>
 
       {/* Game information components */}
-      <div className={styles.info}>
+      <div className={styles.gameStats}>
         <ScoreBoard />
         <TimeBoard />
       </div>

@@ -11,7 +11,7 @@ header {
   color: green;
 }
 
-.info {
+.gameStats {
   display: flex;
   justify-content: space-between;
 

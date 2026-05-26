@@ -1,3 +1,7 @@
-.ScoreBoard {
-  color: blue;
+.score {
+  color: red;
+}
+
+.penalties {
+  color: green;
 }
