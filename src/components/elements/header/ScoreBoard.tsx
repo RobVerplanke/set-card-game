@@ -1,3 +1,5 @@
+import styles from '../../layout/Header/Header.module.css';
+
 export default function ScoreBoard() {
-  return <>Score: 0</>;
+  return <span className={styles.score}>Score: 0</span>;
 }

@@ -3,8 +3,12 @@ header {
 }
 
 .title {
-  font-size: xx-large;
   color: white;
+}
+
+.name {
+  font-size: x-large;
+  color: green;
 }
 
 .info {
@@ -15,11 +19,11 @@ header {
 }
 
 .score {
-  color: white;
+  color: blue;
 }
 
 .timer {
-  color: white;
+  color: green;
 }
 
 .buttonsContainer {
