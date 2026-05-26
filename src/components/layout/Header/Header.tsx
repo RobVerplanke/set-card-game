@@ -1,7 +1,7 @@
-import ScoreBoard from '../../elements/ScoreBoard';
-import TimeBoard from '../../elements/TimeBoard';
+import ScoreBoard from '../../elements/header/ScoreBoard';
+import TimeBoard from '../../elements/header/TimeBoard';
 import NavButton from '../../elements/button/NavButton';
-import GameTitle from '../../elements/GameTitle';
+import GameTitle from '../../elements/header/GameTitle';
 
 // Truly constants
 import * as constants from '../../../constants';
