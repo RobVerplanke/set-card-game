@@ -1,5 +1,5 @@
 import ScoreBoard from '../../elements/header/ScoreBoard/ScoreBoard';
-import TimeBoard from '../../elements/header/TimerBoard';
+import TimeBoard from '../../elements/header/TimeBoard/TimerBoard';
 import NavButton from '../../elements/button/NavButton';
 
 // Truly constants

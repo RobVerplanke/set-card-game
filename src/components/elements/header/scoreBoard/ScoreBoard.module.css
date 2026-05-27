@@ -3,5 +3,9 @@
 }
 
 .penalties {
-  color: green;
+  color: blue;
+}
+
+.timer {
+  color: purple;
 }

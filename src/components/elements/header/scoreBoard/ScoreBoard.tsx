@@ -1,4 +1,4 @@
-import styles from '../scoreBoard/ScoreBoard.module.css';
+import styles from '../ScoreBoard/ScoreBoard.module.css';
 
 export default function ScoreBoard() {
   return (

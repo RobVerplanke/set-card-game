@@ -3,16 +3,16 @@
 .gameboard {
   display: grid;
   grid-template-columns: repeat(4, 160px); /* 12 cards = 4×3 */
-  gap: 2rem;
+  gap: 2rem 5rem;
 
   height: 100%;
-  padding: 3.5rem;
+  padding: 1.5rem;
 }
 
 @media (max-width: 900px) {
   .gameboard {
     grid-template-columns: repeat(3, 160px); /* 12 cards = 3×4 */
-    gap: 1.5rem;
+    gap: 1.5rem 3rem;
   }
 }
 
