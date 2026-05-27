@@ -1,9 +1,17 @@
 .card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   color: white;
-  background-color: green;
+  border: solid 1px black;
+  border-radius: 10px;
   height: 200px;
+}
+
+/* Single symbol on card */
+svg {
+  width: 75px;
+  height: 40px;
 }

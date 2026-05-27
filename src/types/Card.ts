@@ -2,4 +2,9 @@ type CardProps = {
   index: number;
 };
 
-export type { CardProps };
+type SymbolProps = {
+  color: string;
+  fill: string;
+};
+
+export type { CardProps, SymbolProps };
