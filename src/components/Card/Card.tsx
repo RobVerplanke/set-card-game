@@ -9,17 +9,14 @@ import styles from './Card.module.css'; // CSS module
 export default function Card({ index }: CardProps) {
   return (
     <div className={styles.card}>
-      <Diamond color="blue" fill="blue" />
-      {/* <Diamond color="blue" fill="blue" />
-      <Diamond color="blue" fill="blue" /> */}
+      <Diamond color="blue" fill="empty" />
+      {/* <Diamond color="blue" fill="solid" /> */}
 
-      <Oval color="red" fill="red" />
-      {/* <Oval color="red" fill="red" />
-      <Oval color="red" fill="none" /> */}
+      {/* <Oval color="red" fill="empty" /> */}
+      <Oval color="red" fill="striped" />
 
-      <Squiggle color="yellow" fill="yellow" />
-      {/* <Squiggle color="yellow" fill="yellow" />
-      <Squiggle color="yellow" fill="yellow" /> */}
+      {/* <Squiggle color="yellow" fill="striped" /> */}
+      <Squiggle color="green" fill="solid" />
     </div>
   );
 }
