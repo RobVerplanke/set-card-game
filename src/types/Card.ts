@@ -1,18 +1,10 @@
-type CardProps = {
-  index: number;
-};
-
-type SymbolProps = {
-  color: string;
-  fill: 'empty' | 'solid' | 'striped';
-};
-
 type Shape = 'oval' | 'diamond' | 'squiggle';
 type Color = 'red' | 'green' | 'blue';
 type Fill = 'empty' | 'solid' | 'striped';
 type Count = 1 | 2 | 3;
 
 type Card = {
+  key: number;
   id: number;
   shape: Shape;
   color: Color;
@@ -20,4 +12,6 @@ type Card = {
   count: Count;
 };
 
-export type { CardProps, SymbolProps, Shape, Color, Fill, Count, Card };
+type SymbolProps = Pick<Card, 'color' | 'fill' | 'count'>;
+
+export type { SymbolProps, Card };
