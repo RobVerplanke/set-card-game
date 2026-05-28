@@ -18,7 +18,7 @@ export default function Squiggle({ color, fill }: SymbolProps) {
           patternUnits="userSpaceOnUse"
           patternTransform="rotate(45)"
         >
-          <line x1="0" y1="0" x2="0" y2="8" stroke={color} strokeWidth="5" />
+          <line x1="0" y1="0" x2="0" y2="8" stroke={color} strokeWidth="7" />
         </pattern>
       </defs>
       <path
