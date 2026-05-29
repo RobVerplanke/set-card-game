@@ -9,14 +9,27 @@ import styles from './Card.module.css'; // CSS module
 export default function Card({ id, shape, color, fill, count }: Card) {
   return (
     <div className={styles.card}>
-      {/* Diamond shaped symbol */}
-      if ({shape} === 'diamond'){' '}
-      {<Diamond color={color} fill={fill} count={count} />}
-      {/* Oval shaped symbol */}
-      if ({shape} === 'oval') {<Oval color={color} fill={fill} count={count} />}
-      {/* Squiggle shaped symbol */}
-      if ({shape} === 'squiggle'){' '}
-      {<Squiggle color={color} fill={fill} count={count} />}
+      {shape === 'diamond' && (
+        <Diamond
+          id={id}
+          shape={shape}
+          color={color}
+          fill={fill}
+          count={count}
+        />
+      )}
+      {shape === 'oval' && (
+        <Oval id={id} shape={shape} color={color} fill={fill} count={count} />
+      )}
+      {shape === 'squiggle' && (
+        <Squiggle
+          id={id}
+          shape={shape}
+          color={color}
+          fill={fill}
+          count={count}
+        />
+      )}
     </div>
   );
 }

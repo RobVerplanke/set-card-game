@@ -1,12 +1,9 @@
 import type { SymbolProps } from '../../types/Card';
 
-export default function Diamond({ color, fill, count }: SymbolProps) {
+export default function Diamond({ id, color, fill, count }: SymbolProps) {
+  const patternId = `stripes-diamond-${id}`;
   const fillColor =
-    fill === 'solid'
-      ? color
-      : fill === 'empty'
-        ? 'none'
-        : 'url(#stripesDiamonds)';
+    fill === 'solid' ? color : fill === 'empty' ? 'none' : `url(#${patternId})`;
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
@@ -17,7 +14,7 @@ export default function Diamond({ color, fill, count }: SymbolProps) {
         >
           <defs>
             <pattern
-              id="stripesDiamonds"
+              id={patternId}
               width="12"
               height="8"
               patternUnits="userSpaceOnUse"

@@ -1,8 +1,9 @@
 import type { SymbolProps } from '../../types/Card';
 
-export default function Oval({ color, fill, count }: SymbolProps) {
+export default function Oval({ id, color, fill, count }: SymbolProps) {
+  const patternId = `stripes-oval-${id}`;
   const fillColor =
-    fill === 'solid' ? color : fill === 'empty' ? 'none' : 'url(#stripesOval)';
+    fill === 'solid' ? color : fill === 'empty' ? 'none' : `url(#${patternId})`;
 
   return (
     <>
@@ -16,7 +17,7 @@ export default function Oval({ color, fill, count }: SymbolProps) {
         >
           <defs>
             <pattern
-              id="stripesOval"
+              id={patternId}
               width="12"
               height="8"
               patternUnits="userSpaceOnUse"

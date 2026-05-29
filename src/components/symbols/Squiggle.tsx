@@ -1,12 +1,9 @@
 import type { SymbolProps } from '../../types/Card';
 
-export default function Squiggle({ color, fill, count }: SymbolProps) {
+export default function Squiggle({ id, color, fill, count }: SymbolProps) {
+  const patternId = `stripes-squiggle-${id}`;
   const fillColor =
-    fill === 'solid'
-      ? color
-      : fill === 'empty'
-        ? 'none'
-        : 'url(#stripesSquiggle)';
+    fill === 'solid' ? color : fill === 'empty' ? 'none' : `url(#${patternId})`;
 
   return (
     <>
@@ -18,7 +15,7 @@ export default function Squiggle({ color, fill, count }: SymbolProps) {
         >
           <defs>
             <pattern
-              id="stripesSquiggle"
+              id={patternId}
               width="12"
               height="8"
               patternUnits="userSpaceOnUse"

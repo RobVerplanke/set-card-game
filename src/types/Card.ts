@@ -4,7 +4,6 @@ type Fill = 'empty' | 'solid' | 'striped';
 type Count = 1 | 2 | 3;
 
 type Card = {
-  key: number;
   id: number;
   shape: Shape;
   color: Color;
@@ -12,6 +11,6 @@ type Card = {
   count: Count;
 };
 
-type SymbolProps = Pick<Card, 'color' | 'fill' | 'count'>;
+type SymbolProps = Pick<Card, 'id' | 'shape' | 'color' | 'fill' | 'count'>;
 
 export type { SymbolProps, Card };
