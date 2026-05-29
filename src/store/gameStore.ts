@@ -17,7 +17,6 @@ export const useGameStore = create<GameStore>((set) => ({
 
   // Card actions
   selectCard: () => {},
-  shuffleDeck: () => {},
   initializeGame: () => {},
   replaceCards: () => {},
   addCards: () => {},

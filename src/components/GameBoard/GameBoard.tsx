@@ -1,4 +1,5 @@
 import generateDeck from '../../utils/deckGenerator';
+import shuffleDeck from '../../utils/deckShuffler';
 
 // CSS
 import Card from '../Card/Card'; // Card component
@@ -6,7 +7,7 @@ import styles from './GameBoard.module.css'; // CSS module
 
 export default function GameBoard() {
   // Get a full deck of 81 unique card objects - {shape, color, fill, count}
-  const cardsDeck = generateDeck();
+  const cardsDeck = shuffleDeck(generateDeck());
 
   return (
     <section className={styles.gameboard}>
