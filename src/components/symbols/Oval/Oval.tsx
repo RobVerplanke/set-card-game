@@ -22,10 +22,10 @@ export default function Oval({ id, color, fill, count }: SymbolProps) {
           <defs>
             <pattern
               id={patternId}
-              width="12"
+              width="17"
               height="8"
               patternUnits="userSpaceOnUse"
-              patternTransform="rotate(45)"
+              patternTransform="rotate(38)"
             >
               <line
                 x1="0"

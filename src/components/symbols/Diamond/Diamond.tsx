@@ -19,10 +19,10 @@ export default function Diamond({ id, color, fill, count }: SymbolProps) {
           <defs>
             <pattern
               id={patternId}
-              width="12"
+              width="24"
               height="8"
               patternUnits="userSpaceOnUse"
-              patternTransform="rotate(45)"
+              patternTransform="rotate(38)"
             >
               <line
                 x1="0"
@@ -30,7 +30,7 @@ export default function Diamond({ id, color, fill, count }: SymbolProps) {
                 x2="0"
                 y2="8"
                 stroke={color}
-                strokeWidth="7"
+                strokeWidth="14"
               />
             </pattern>
           </defs>
