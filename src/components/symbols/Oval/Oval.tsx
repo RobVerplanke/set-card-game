@@ -1,4 +1,7 @@
-import type { SymbolProps } from '../../types/Card';
+import type { SymbolProps } from '../../../types/Card';
+
+// CSS
+import styles from './Oval.module.css'; // CSS module
 
 export default function Oval({ id, color, fill, count }: SymbolProps) {
   const patternId = `stripes-oval-${id}`;
@@ -10,6 +13,7 @@ export default function Oval({ id, color, fill, count }: SymbolProps) {
       {Array.from({ length: count }, (_, index) => (
         <svg
           key={index}
+          className={styles.oval}
           viewBox="0 0 200 100"
           width="75"
           height="40"

@@ -1,0 +1,10 @@
+.symbols {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diamond {
+  width: 55px;
+  height: 55px;
+}

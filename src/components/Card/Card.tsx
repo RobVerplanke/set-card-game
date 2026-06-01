@@ -1,7 +1,7 @@
 import type { Card } from '../../types/Card';
-import Diamond from '../symbols/Diamond';
-import Oval from '../symbols/Oval';
-import Squiggle from '../symbols/Squiggle';
+import Diamond from '../symbols/Diamond/Diamond';
+import Oval from '../symbols/Oval/Oval';
+import Squiggle from '../symbols/squiggle/Squiggle';
 
 // CSS
 import styles from './Card.module.css'; // CSS module

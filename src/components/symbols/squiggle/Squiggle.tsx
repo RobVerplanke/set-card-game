@@ -1,15 +1,20 @@
-import type { SymbolProps } from '../../types/Card';
+import type { SymbolProps } from '../../../types/Card';
 
-export default function Diamond({ id, color, fill, count }: SymbolProps) {
-  const patternId = `stripes-diamond-${id}`;
+// CSS
+import styles from './Squiggle.module.css'; // CSS module
+
+export default function Squiggle({ id, color, fill, count }: SymbolProps) {
+  const patternId = `stripes-squiggle-${id}`;
   const fillColor =
     fill === 'solid' ? color : fill === 'empty' ? 'none' : `url(#${patternId})`;
+
   return (
-    <>
+    <div className={styles.symbols}>
       {Array.from({ length: count }, (_, index) => (
         <svg
           key={index}
-          viewBox="5 5 190 90"
+          className={styles.squiggle}
+          viewBox="0 0 200 100"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
@@ -30,15 +35,21 @@ export default function Diamond({ id, color, fill, count }: SymbolProps) {
               />
             </pattern>
           </defs>
-
-          <polygon
-            points="10,50 100,90 190,50 100,10"
-            strokeWidth="5"
+          <path
+            d="M 20,30
+        C 50,0 80,0 100,25
+        C 120,50 150,60 180,20
+        C 195,10 195,60 180,75
+        C 150,105 120,95 100,70
+        C 80,45 50,60 20,80
+        C 5,73 5,40 20,30
+        Z"
             fill={fillColor}
             stroke={color}
+            strokeWidth="4"
           />
         </svg>
       ))}
-    </>
+    </div>
   );
 }

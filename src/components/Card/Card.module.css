@@ -9,9 +9,3 @@
   border-radius: 10px;
   height: 200px;
 }
-
-/* Single symbol on card */
-svg {
-  width: 75px;
-  height: 40px;
-}
