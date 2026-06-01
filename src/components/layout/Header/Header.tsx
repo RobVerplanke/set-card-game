@@ -1,6 +1,7 @@
 import ScoreBoard from '../../elements/header/ScoreBoard/ScoreBoard';
 import TimeBoard from '../../elements/header/TimeBoard/TimerBoard';
 import NavButton from '../../elements/button/NavButton';
+import { useGameStore } from '../../../store/gameStore';
 
 // Truly constants
 import * as constants from '../../../constants';
@@ -9,6 +10,12 @@ import * as constants from '../../../constants';
 import styles from './Header.module.css';
 
 export default function Header() {
+  // Import store method to start the game
+  const startGame = useGameStore((state) => state.startGame);
+
+  // Import store method to count the use of the use-hint-button
+  const useHint = useGameStore((state) => state.useHint);
+
   return (
     <header className={styles.header}>
       {/* Game title */}
@@ -25,9 +32,9 @@ export default function Header() {
 
       {/* Menu button components */}
       <div className={styles.buttonsContainer}>
-        <NavButton label={constants.NAV_BUTTON_NEW_GAME} />
-        <NavButton label={constants.NAV_BUTTON_RULES} />
-        <NavButton label={constants.NAV_BUTTON_HINT} />
+        <NavButton label={constants.NAV_BUTTON_NEW_GAME} onClick={startGame} />
+        <NavButton label={constants.NAV_BUTTON_RULES} onClick={() => {}} />
+        <NavButton label={constants.NAV_BUTTON_HINT} onClick={useHint} />
       </div>
     </header>
   );

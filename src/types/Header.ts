@@ -1,5 +1,6 @@
 type NavButtonProps = {
   label: string;
+  onClick: () => void;
 };
 
 type GameTitle = {

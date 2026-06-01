@@ -1,18 +1,17 @@
-import generateDeck from '../../utils/deckGenerator';
-import shuffleDeck from '../../utils/deckShuffler';
+import { useGameStore } from '../../store/gameStore';
 
 // CSS
 import Card from '../Card/Card'; // Card component
 import styles from './GameBoard.module.css'; // CSS module
 
 export default function GameBoard() {
-  // Get a full deck of 81 unique card objects - {shape, color, fill, count}
-  const cardsDeck = shuffleDeck(generateDeck());
+  // Render the gameboard with 12 unique cards - {shape, color, fill, count}
+  const board = useGameStore((state) => state.board);
 
   return (
     <section className={styles.gameboard}>
       {/* Loop through all card objects and generate a card for each dataset */}
-      {cardsDeck.map((card, index) => {
+      {board.map((card, index) => {
         return (
           <Card
             key={index}

@@ -1,7 +1,9 @@
 import { create } from 'zustand';
 import type { GameStore } from '../types/gameStore';
+import generateDeck from '../utils/deckGenerator';
+import shuffleDeck from '../utils/deckShuffler';
 
-export const useGameStore = create<GameStore>((set) => ({
+export const useGameStore = create<GameStore>((set, get) => ({
   // Cards state
   deck: [],
   board: [],
@@ -17,7 +19,14 @@ export const useGameStore = create<GameStore>((set) => ({
 
   // Card actions
   selectCard: () => {},
-  initializeGame: () => {},
+  initializeGame: () => {
+    const shuffled = shuffleDeck(generateDeck());
+    set({
+      deck: shuffled.slice(12),
+      board: shuffled.slice(0, 12),
+      phase: 'playing',
+    });
+  },
   replaceCards: () => {},
   addCards: () => {},
 
@@ -40,7 +49,13 @@ export const useGameStore = create<GameStore>((set) => ({
     })),
 
   // Game actions
-  startGame: () => {},
+  startGame: () => {
+    console.log('start new game!');
+    get().initializeGame();
+    set({
+      phase: 'playing',
+    });
+  },
   endGame: () => {},
   resetGame: () =>
     set({

@@ -9,7 +9,7 @@ export default function Oval({ id, color, fill, count }: SymbolProps) {
     fill === 'solid' ? color : fill === 'empty' ? 'none' : `url(#${patternId})`;
 
   return (
-    <>
+    <div className={styles.symbols}>
       {Array.from({ length: count }, (_, index) => (
         <svg
           key={index}
@@ -49,6 +49,6 @@ export default function Oval({ id, color, fill, count }: SymbolProps) {
           />
         </svg>
       ))}
-    </>
+    </div>
   );
 }
