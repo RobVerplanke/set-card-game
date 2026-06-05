@@ -3,6 +3,7 @@ import type { GameStore } from '../types/gameStore';
 import generateDeck from '../utils/deckGenerator';
 import shuffleDeck from '../utils/deckShuffler';
 import { findSetOnBoard, isValidSet } from '../utils/validateSet';
+import type { Card } from '../types/Card';
 
 export const useGameStore = create<GameStore>((set, get) => ({
   // Cards state
@@ -28,11 +29,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
       const isValid = isValidSet(updatedSelection);
 
       if (isValid) {
+        // Valid set found
+        get().replaceCards(updatedSelection);
         console.log('set found!');
         console.log('updatedSelection: ', updatedSelection);
       } else {
         console.log('Not a set');
         console.log('updatedSelection: ', updatedSelection);
+        // Substract points from score
       }
 
       set({ selectedCards: [] }); // Empty selected cards after check for valid set
@@ -60,8 +64,18 @@ export const useGameStore = create<GameStore>((set, get) => ({
     console.log('Game initialized!');
   },
 
-  replaceCards: () => {
-    console.log('Cards replaced');
+  replaceCards: (cards: Card[]) => {
+    const { board, deck } = get();
+
+    let deckIndex = 0;
+    const newBoard = board.map((card) => {
+      if (cards.some((c) => c.id === card.id)) {
+        return deck[deckIndex++]; // vervang door volgende kaart uit deck
+      }
+      return card; // behoud de kaart op zijn plek
+    });
+
+    set({ board: newBoard, deck: deck.slice(cards.length) });
   },
 
   // Score actions

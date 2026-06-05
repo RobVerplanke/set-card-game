@@ -16,7 +16,7 @@ type GameStore = {
 
   // Card actions
   initializeGame: () => void;
-  replaceCards: () => void;
+  replaceCards: (cards: Card[]) => void;
 
   // Score actions
   selectCard: (card: Card) => void;
