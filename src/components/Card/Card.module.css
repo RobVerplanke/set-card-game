@@ -9,3 +9,11 @@
   border-radius: 10px;
   height: 200px;
 }
+
+.highlighted {
+  border: 3px solid orange;
+}
+
+.selected {
+  border: 3px solid red;
+}

@@ -11,6 +11,12 @@ type Card = {
   count: Count;
 };
 
+type CardProps = Card & {
+  onClick: () => void;
+  isHighlighted: boolean;
+  isSelected: boolean;
+};
+
 type SymbolProps = Pick<Card, 'id' | 'shape' | 'color' | 'fill' | 'count'>;
 
-export type { SymbolProps, Card };
+export type { SymbolProps, Card, CardProps };

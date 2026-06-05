@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import type { GameStore } from '../types/gameStore';
 import generateDeck from '../utils/deckGenerator';
 import shuffleDeck from '../utils/deckShuffler';
+import { findSetOnBoard, isValidSet } from '../utils/validateSet';
 
 export const useGameStore = create<GameStore>((set, get) => ({
   // Cards state
@@ -18,22 +19,49 @@ export const useGameStore = create<GameStore>((set, get) => ({
   phase: 'idle',
 
   // Card actions
-  selectCard: () => {},
+  selectCard: (card) => {
+    const { selectedCards } = get();
+    const updatedSelection = [...selectedCards, card];
+
+    // Check for valid set
+    if (updatedSelection.length === 3) {
+      const isValid = isValidSet(updatedSelection);
+
+      if (isValid) {
+        console.log('set found!');
+        console.log('updatedSelection: ', updatedSelection);
+      } else {
+        console.log('Not a set');
+        console.log('updatedSelection: ', updatedSelection);
+      }
+
+      set({ selectedCards: [] }); // Empty selected cards after check for valid set
+    } else {
+      set({ selectedCards: updatedSelection }); // Add selected card to selection
+    }
+  },
+
   initializeGame: () => {
-    console.log('Game initialized!');
     const shuffled = shuffleDeck(generateDeck());
-    set({
-      deck: shuffled.slice(12),
-      board: shuffled.slice(0, 12),
-    });
+    let board = shuffled.slice(0, 12);
+    let deck = shuffled.slice(12);
+
+    while (!findSetOnBoard(board)) {
+      board = [...board, ...deck.slice(0, 3)];
+      deck = deck.slice(3);
+      console.log('Added 3 extra cards!');
+    }
+
+    // Shuffle the board so the added cards are mixed in with the rest of the cards
+    board = shuffleDeck(board);
+
+    set({ board, deck, phase: 'playing' });
+
+    console.log('Game initialized!');
   },
 
   replaceCards: () => {
     console.log('Cards replaced');
-  },
-
-  addCards: () => {
-    console.log('Cards added');
   },
 
   // Score actions

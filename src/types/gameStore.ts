@@ -17,10 +17,9 @@ type GameStore = {
   // Card actions
   initializeGame: () => void;
   replaceCards: () => void;
-  addCards: () => void;
 
   // Score actions
-  selectCard: () => void;
+  selectCard: (card: Card) => void;
   incrementScore: () => void;
   useHint: () => void;
 

@@ -2,23 +2,22 @@
 
 .gameboard {
   display: grid;
-  grid-template-columns: repeat(4, 160px); /* 12 cards = 4×3 */
+  grid-template-columns: repeat(var(--grid-columns, 4), 160px);
   gap: 2rem 5rem;
-
   height: 100%;
   padding: 1.5rem;
 }
 
 @media (max-width: 900px) {
   .gameboard {
-    grid-template-columns: repeat(3, 160px); /* 12 cards = 3×4 */
+    grid-template-columns: repeat(3, 160px);
     gap: 1.5rem 3rem;
   }
 }
 
 @media (max-width: 600px) {
   .gameboard {
-    grid-template-columns: repeat(2, 160px); /* 12 cards = 2×6 */
+    grid-template-columns: repeat(2, 160px);
     gap: 1rem;
   }
 }
