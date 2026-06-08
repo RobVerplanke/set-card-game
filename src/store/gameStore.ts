@@ -68,14 +68,22 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { board, deck } = get();
 
     let deckIndex = 0;
-    const newBoard = board.map((card) => {
+    let newBoard = board.map((card) => {
       if (cards.some((c) => c.id === card.id)) {
-        return deck[deckIndex++]; // vervang door volgende kaart uit deck
+        return deck[deckIndex++]; // Replace with next card from deck
       }
-      return card; // behoud de kaart op zijn plek
+      return card; // Keep the card in place
     });
 
-    set({ board: newBoard, deck: deck.slice(cards.length) });
+    let newDeck = deck.slice(cards.length);
+
+    // Check if there are sets on the board
+    while (!findSetOnBoard(newBoard) && newDeck.length > 0) {
+      newBoard = [...newBoard, ...newDeck.slice(0, 3)];
+      newDeck = newDeck.slice(3);
+    }
+
+    set({ board: newBoard, deck: newDeck });
   },
 
   // Score actions
