@@ -19,12 +19,20 @@ export const useGameStore = create<GameStore>((set, get) => ({
   // Game state
   phase: 'idle',
 
-  // Card actions
+  // Handle clicks on any or the same card
   selectCard: (card) => {
     const { selectedCards } = get();
+
+    // Deselect card if already selected
+    if (selectedCards.some((c) => c.id === card.id)) {
+      set({ selectedCards: selectedCards.filter((c) => c.id !== card.id) });
+      return;
+    }
+
+    // Add card to selected cards list, when it'ss not already selected
     const updatedSelection = [...selectedCards, card];
 
-    // Check for valid set
+    // Check for valid set in selected Cards
     if (updatedSelection.length === 3) {
       const isValid = isValidSet(updatedSelection);
 
@@ -32,16 +40,23 @@ export const useGameStore = create<GameStore>((set, get) => ({
         // Valid set found
         get().replaceCards(updatedSelection);
         console.log('set found!');
-        console.log('updatedSelection: ', updatedSelection);
       } else {
+        // No set found
         console.log('Not a set');
-        console.log('updatedSelection: ', updatedSelection);
-        // Substract points from score
+        //
+        // TODO: Substract points from score
+        //
       }
-
-      set({ selectedCards: [] }); // Empty selected cards after check for valid set
+      // Empty selected cards after check for valid set
+      set({ selectedCards: [] });
     } else {
-      set({ selectedCards: updatedSelection }); // Add selected card to selection
+      // If card is already in selection, de-select card by removing it from selection
+      if (selectedCards.some((c) => c.id === card.id)) {
+        set({ selectedCards: selectedCards.filter((c) => c.id !== card.id) });
+      } else {
+        // Card was not already selected before, add card to selection
+        set({ selectedCards: updatedSelection });
+      }
     }
   },
 
@@ -104,6 +119,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   useHint: () => {
     console.log('Used hint');
+
+    // Highlight one card of a set on the board
+
     set((state) => ({
       hintsUsed: state.hintsUsed + 1,
       score: state.score - 1,

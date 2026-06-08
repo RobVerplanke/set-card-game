@@ -18,7 +18,11 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`${styles.card} ${isHighlighted ? styles.highlighted : ''} ${isSelected ? styles.selected : ''}`}
+      className={`
+        ${styles.card} 
+        ${isHighlighted ? styles.highlighted : ''}
+        ${isSelected ? styles.selected : ''}
+      `}
       onClick={onClick}
     >
       {shape === 'diamond' && (
