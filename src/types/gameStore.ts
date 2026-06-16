@@ -5,6 +5,7 @@ type GameStore = {
   deck: Card[];
   board: Card[];
   selectedCards: Card[];
+  hintCards: Card[];
 
   // Score state
   hintsUsed: number;

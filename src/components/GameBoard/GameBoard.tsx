@@ -1,5 +1,4 @@
 import { useGameStore } from '../../store/gameStore';
-import { getSetOnBoard } from '../../utils/validateSet';
 
 // CSS
 import Card from '../Card/Card'; // Card component
@@ -8,7 +7,7 @@ import styles from './GameBoard.module.css'; // CSS module
 export default function GameBoard() {
   // Render the gameboard with 12 unique cards - {shape, color, fill, count}
   const board = useGameStore((state) => state.board);
-  const validSet = getSetOnBoard(board);
+  const hintCards = useGameStore((state) => state.hintCards);
   const selectCard = useGameStore((state) => state.selectCard);
   const selectedCards = useGameStore((state) => state.selectedCards);
 
@@ -31,7 +30,7 @@ export default function GameBoard() {
             fill={card.fill}
             count={card.count}
             onClick={() => selectCard(card)}
-            isHighlighted={validSet.some((c) => c.id === card.id)}
+            isHighlighted={hintCards.some((c) => c.id === card.id)}
             isSelected={selectedCards.some((c) => c.id === card.id)}
           />
         );

@@ -2,7 +2,11 @@ import { create } from 'zustand';
 import type { GameStore } from '../types/gameStore';
 import generateDeck from '../utils/deckGenerator';
 import shuffleDeck from '../utils/deckShuffler';
-import { findSetOnBoard, isValidSet } from '../utils/validateSet';
+import {
+  findSetOnBoard,
+  getSetOnBoard,
+  isValidSet,
+} from '../utils/validateSet';
 import type { Card } from '../types/Card';
 
 export const useGameStore = create<GameStore>((set, get) => ({
@@ -10,6 +14,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   deck: [],
   board: [],
   selectedCards: [],
+  hintCards: [],
 
   // Score state
   hintsUsed: 0,
@@ -48,7 +53,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         //
       }
       // Empty selected cards after check for valid set
-      set({ selectedCards: [] });
+      set({ selectedCards: [], hintCards: [] });
     } else {
       // If card is already in selection, de-select card by removing it from selection
       if (selectedCards.some((c) => c.id === card.id)) {
@@ -92,12 +97,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
     let newDeck = deck.slice(cards.length);
 
-    // Check if there are sets on the board
+    // Check if there are sets on the board when cards are selected. Add new cards to board
     while (!findSetOnBoard(newBoard) && newDeck.length > 0) {
       newBoard = [...newBoard, ...newDeck.slice(0, 3)];
       newDeck = newDeck.slice(3);
     }
 
+    // Update the board and deck
     set({ board: newBoard, deck: newDeck });
   },
 
@@ -120,9 +126,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
   useHint: () => {
     console.log('Used hint');
 
-    // Highlight one card of a set on the board
+    const { board } = get();
+    const validSet = getSetOnBoard(board);
 
     set((state) => ({
+      hintCards: validSet,
       hintsUsed: state.hintsUsed + 1,
       score: state.score - 1,
     }));
