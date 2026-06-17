@@ -45,6 +45,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
         // Valid set found
         get().replaceCards(updatedSelection);
         console.log('set found!');
+
+        set((state) => ({
+          score: state.score + 1,
+        }));
       } else {
         // No set found
         console.log('Not a set');
@@ -87,15 +91,24 @@ export const useGameStore = create<GameStore>((set, get) => ({
   replaceCards: (cards: Card[]) => {
     const { board, deck } = get();
 
-    let deckIndex = 0;
-    let newBoard = board.map((card) => {
-      if (cards.some((c) => c.id === card.id)) {
-        return deck[deckIndex++]; // Replace with next card from deck
-      }
-      return card; // Keep the card in place
-    });
+    let newBoard;
+    let newDeck = deck;
 
-    let newDeck = deck.slice(cards.length);
+    // Make sure to bring the amount of cards on the board back to 12 after adding cards
+    if (board.length > 12) {
+      // Remove 3 cards without replacing them
+      newBoard = board.filter((card) => !cards.some((c) => c.id === card.id));
+    } else {
+      // Replace 3 cards with cards from the deck
+      let deckIndex = 0;
+      newBoard = board.map((card) => {
+        if (cards.some((c) => c.id === card.id)) {
+          return deck[deckIndex++];
+        }
+        return card;
+      });
+      newDeck = deck.slice(cards.length);
+    }
 
     // Check if there are sets on the board when cards are selected. Add new cards to board
     while (!findSetOnBoard(newBoard) && newDeck.length > 0) {
