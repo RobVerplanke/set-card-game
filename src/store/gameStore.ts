@@ -20,6 +20,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   hintsUsed: 0,
   invalidSets: 0,
   score: 0,
+  penalties: 0,
 
   // Game state
   phase: 'idle',
@@ -83,7 +84,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     // Shuffle the board so the added cards are mixed in with the rest of the cards
     board = shuffleDeck(board);
 
-    set({ board, deck, phase: 'playing' });
+    set({ board, deck, phase: 'playing', hintCards: [] });
 
     console.log('Game initialized!');
   },
@@ -145,6 +146,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     set((state) => ({
       hintCards: validSet,
       hintsUsed: state.hintsUsed + 1,
+      penalties: state.penalties + 1,
       score: state.score - 1,
     }));
   },
@@ -166,7 +168,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
       deck: [],
       board: [],
       selectedCards: [],
+      hintCards: [],
       score: 0,
+      penalties: 0,
       hintsUsed: 0,
       invalidSets: 0,
       phase: 'idle',

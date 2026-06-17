@@ -11,6 +11,7 @@ type GameStore = {
   hintsUsed: number;
   invalidSets: number;
   score: number;
+  penalties: number;
 
   // Game state
   phase: 'idle' | 'playing' | 'won';
