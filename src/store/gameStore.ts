@@ -15,6 +15,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   board: [],
   selectedCards: [],
   hintCards: [],
+  hintKey: 0,
 
   // Score state
   hintsUsed: 0,
@@ -43,22 +44,24 @@ export const useGameStore = create<GameStore>((set, get) => ({
       const isValid = isValidSet(updatedSelection);
 
       if (isValid) {
-        // Valid set found
-        get().replaceCards(updatedSelection);
-        console.log('set found!');
-
+        set({ selectedCards: updatedSelection });
+        setTimeout(() => {
+          get().replaceCards(updatedSelection);
+          set({ selectedCards: [], hintCards: [] });
+        }, 1500);
         set((state) => ({
           score: state.score + 1,
         }));
       } else {
-        // No set found
-        console.log('Not a set');
-        //
-        // TODO: Substract points from score
-        //
+        set({ selectedCards: updatedSelection });
+        setTimeout(() => {
+          set({ selectedCards: [] });
+        }, 1000);
+        set((state) => ({
+          penalties: state.penalties + 1,
+        }));
       }
       // Empty selected cards after check for valid set
-      set({ selectedCards: [], hintCards: [] });
     } else {
       // If card is already in selection, de-select card by removing it from selection
       if (selectedCards.some((c) => c.id === card.id)) {
@@ -80,6 +83,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
       deck = deck.slice(3);
       console.log('Added 3 extra cards!');
     }
+
+    // Reset score and penalties
+    get().resetGame();
 
     // Shuffle the board so the added cards are mixed in with the rest of the cards
     board = shuffleDeck(board);
@@ -145,9 +151,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
     set((state) => ({
       hintCards: validSet,
+      hintKey: state.hintKey + 1,
       hintsUsed: state.hintsUsed + 1,
       penalties: state.penalties + 1,
-      score: state.score - 1,
+      // score: state.score - 1, // Subtract after game
     }));
   },
 
@@ -159,9 +166,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
       phase: 'playing',
     });
   },
+
   endGame: () => {
     console.log('Game ended!');
   },
+
   resetGame: () => {
     console.log('Reset game!');
     set({

@@ -3,9 +3,11 @@
 .gameboard {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns, 4), 160px);
-  gap: 2rem 5rem;
+  gap: 2rem 2rem;
   height: 100%;
   padding: 1.5rem;
+  justify-content: center;
+  align-content: center;
 }
 
 @media (max-width: 900px) {

@@ -1,11 +1,13 @@
 .score {
-  color: red;
+  color: var(--app-primairy-color-yellow);
 }
 
 .penalties {
-  color: blue;
+  color: var(--header-penalties-color);
 }
 
-.timer {
-  color: purple;
+.score,
+.penalties {
+  font-size: 1.5rem;
+  font-weight: 900;
 }

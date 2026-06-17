@@ -21,31 +21,35 @@ export default function Header() {
       {/* Game title */}
       <h1 className={styles.title}>{constants.HEADER_TITLE.toUpperCase()}</h1>
 
-      {/* Player name */}
-      <span className={styles.name}>
-        {constants.HEADER_PLAYER_NAME.toUpperCase()}
-      </span>
-
       {/* Game information components */}
-      <div className={styles.gameStats}>
+      <div className={styles.leftSection}>
+        <span className={styles.name}>
+          {constants.HEADER_PLAYER_NAME.toUpperCase()}
+        </span>
         <ScoreBoard />
+      </div>
+      <div className={styles.rightSection}>
         <TimeBoard />
       </div>
 
       {/* Menu button components */}
       <div className={styles.buttonsContainer}>
-        <NavButton
-          label={constants.NAV_BUTTON_NEW_GAME.toUpperCase()}
-          onClick={startGame}
-        />
-        <NavButton
-          label={constants.NAV_BUTTON_RULES.toUpperCase()}
-          onClick={() => {}}
-        />
-        <NavButton
-          label={constants.NAV_BUTTON_HINT.toUpperCase()}
-          onClick={useHint}
-        />
+        <div className={styles.gameButtons}>
+          <NavButton
+            label={constants.NAV_BUTTON_NEW_GAME.toUpperCase()}
+            onClick={startGame}
+          />
+          <NavButton
+            label={constants.NAV_BUTTON_HINT.toUpperCase()}
+            onClick={useHint}
+          />
+        </div>
+        <div className={styles.rulesButton}>
+          <NavButton
+            label={constants.NAV_BUTTON_RULES.toUpperCase()}
+            onClick={() => {}}
+          />
+        </div>
       </div>
     </header>
   );

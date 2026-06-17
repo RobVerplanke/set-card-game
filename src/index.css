@@ -1,3 +1,12 @@
+:root {
+  --header-penalties-color: red;
+
+  --app-primairy-color-blue: #1c3269;
+  --app-primairy-color-yellow: #faa70f;
+
+  --card-background-color: #f5f0e8;
+}
+
 *,
 *::before,
 *::after {
@@ -15,4 +24,7 @@ body,
 body {
   font-family: sans-serif;
   line-height: 1.5;
+  background-color: var(--app-primairy-color-blue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpolygon points='8,8 32,8 38,20 20,38 2,20' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
 }

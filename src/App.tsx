@@ -1,4 +1,3 @@
-import Footer from './components/layout/Footer/Footer';
 import GameBoard from './components/GameBoard/GameBoard';
 import Header from './components/layout/Header/Header';
 
@@ -12,7 +11,6 @@ function App() {
       <main>
         <GameBoard />
       </main>
-      <Footer />
     </div>
   );
 }

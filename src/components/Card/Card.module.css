@@ -1,19 +1,58 @@
 .card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  color: white;
-  border: solid 1px black;
-  border-radius: 10px;
+  background-color: var(--card-background-color);
+  background-image: url('https://transparenttextures.com/patterns/rice-paper-2.png');
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  border: 5px solid var(--app-primairy-color-yellow);
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
   height: 200px;
+  width: 160px;
 }
 
-.highlighted {
-  border: 3px solid orange;
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .selected {
-  border: 3px solid red;
+  transform: translateY(-5px);
+  background-color: var(--app-primairy-color-yellow);
+  background-image: url('https://transparenttextures.com/patterns/rice-paper-2.png');
+  border: 3px solid var(--app-primairy-color-yellow);
+  box-shadow:
+    0 8px 24px rgba(250, 167, 15, 0.5),
+    inset 0 0 20px rgba(250, 167, 15, 0.2);
+}
+
+.highlighted {
+  animation: pulse 1.5s ease-in-out 2;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow:
+      0 0 10px rgba(250, 167, 15, 0.6),
+      0 0 20px rgba(250, 167, 15, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(250, 167, 15, 1),
+      0 0 60px rgba(250, 167, 15, 0.8);
+  }
+  100% {
+    box-shadow: none;
+  }
 }

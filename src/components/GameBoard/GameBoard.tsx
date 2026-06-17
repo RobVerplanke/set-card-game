@@ -10,6 +10,7 @@ export default function GameBoard() {
   const hintCards = useGameStore((state) => state.hintCards);
   const selectCard = useGameStore((state) => state.selectCard);
   const selectedCards = useGameStore((state) => state.selectedCards);
+  const hintKey = useGameStore((state) => state.hintKey);
 
   // Adjust grid-template layout to the amount of cards
   return (
@@ -20,10 +21,10 @@ export default function GameBoard() {
       }
     >
       {/* Loop through all card objects and generate a card for each dataset */}
-      {board.map((card, index) => {
+      {board.map((card) => {
         return (
           <Card
-            key={index}
+            key={`${card.id}-${hintKey}`}
             id={card.id}
             shape={card.shape}
             color={card.color}

@@ -10,7 +10,7 @@ export default function ScoreBoard() {
   const penalties = useGameStore((state) => state.penalties);
 
   return (
-    <div className={styles.ScpenaltiesreBoard}>
+    <div>
       <span className={styles.score}>
         {constants.SCORE_LABEL.toUpperCase()}: {score}
       </span>
