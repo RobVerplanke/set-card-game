@@ -9,8 +9,11 @@ export const FILLS = ['empty', 'solid', 'striped'] as const;
 export const COUNTS = [1, 2, 3] as const;
 
 // Header.tsx
-export const HEADER_TITLE = 'SET card game!';
-export const HEADER_PLAYER_NAME = 'Naam speler';
-export const NAV_BUTTON_NEW_GAME = 'Nieuw spel';
-export const NAV_BUTTON_RULES = 'Spelregels';
-export const NAV_BUTTON_HINT = 'Vraag hint';
+export const HEADER_TITLE = 'SET!';
+export const HEADER_PLAYER_NAME = 'Playername';
+export const NAV_BUTTON_NEW_GAME = 'New game';
+export const NAV_BUTTON_RULES = 'Rules';
+export const NAV_BUTTON_HINT = 'Hint';
+export const PENALTIES_LABEL = 'Penalties';
+export const SCORE_LABEL = 'Score';
+export const TIME_LABEL = 'Time';

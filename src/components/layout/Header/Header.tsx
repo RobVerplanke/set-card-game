@@ -19,10 +19,12 @@ export default function Header() {
   return (
     <header className={styles.header}>
       {/* Game title */}
-      <h1 className={styles.title}>{constants.HEADER_TITLE}</h1>
+      <h1 className={styles.title}>{constants.HEADER_TITLE.toUpperCase()}</h1>
 
       {/* Player name */}
-      <span className={styles.name}>{constants.HEADER_PLAYER_NAME}</span>
+      <span className={styles.name}>
+        {constants.HEADER_PLAYER_NAME.toUpperCase()}
+      </span>
 
       {/* Game information components */}
       <div className={styles.gameStats}>
@@ -32,9 +34,18 @@ export default function Header() {
 
       {/* Menu button components */}
       <div className={styles.buttonsContainer}>
-        <NavButton label={constants.NAV_BUTTON_NEW_GAME} onClick={startGame} />
-        <NavButton label={constants.NAV_BUTTON_RULES} onClick={() => {}} />
-        <NavButton label={constants.NAV_BUTTON_HINT} onClick={useHint} />
+        <NavButton
+          label={constants.NAV_BUTTON_NEW_GAME.toUpperCase()}
+          onClick={startGame}
+        />
+        <NavButton
+          label={constants.NAV_BUTTON_RULES.toUpperCase()}
+          onClick={() => {}}
+        />
+        <NavButton
+          label={constants.NAV_BUTTON_HINT.toUpperCase()}
+          onClick={useHint}
+        />
       </div>
     </header>
   );
