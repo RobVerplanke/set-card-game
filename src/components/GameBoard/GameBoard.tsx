@@ -1,4 +1,5 @@
 import { useGameStore } from '../../store/gameStore';
+import SetOverlay from './SetOverlay';
 
 // CSS
 import Card from '../Card/Card'; // Card component
@@ -10,7 +11,7 @@ export default function GameBoard() {
   const hintCards = useGameStore((state) => state.hintCards);
   const selectCard = useGameStore((state) => state.selectCard);
   const selectedCards = useGameStore((state) => state.selectedCards);
-  const hintKey = useGameStore((state) => state.hintKey);
+  const foundSet = useGameStore((state) => state.foundSet);
 
   // Adjust grid-template layout to the amount of cards
   return (
@@ -20,11 +21,12 @@ export default function GameBoard() {
         { '--grid-columns': board.length <= 12 ? 4 : 3 } as React.CSSProperties
       }
     >
+      <SetOverlay cards={foundSet} visible={foundSet.length === 3} />
       {/* Loop through all card objects and generate a card for each dataset */}
       {board.map((card) => {
         return (
           <Card
-            key={`${card.id}-${hintKey}`}
+            key={card.id}
             id={card.id}
             shape={card.shape}
             color={card.color}

@@ -10,3 +10,19 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+.invalidLabel {
+  position: fixed;
+  top: 50%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  color: var(--game-message-penalty-color);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  z-index: 100;
+  background-color: rgba(28, 50, 105, 0.9);
+  padding: 1.5rem 3rem;
+  border-radius: 12px;
+  border: 3px solid #faa70f;
+}

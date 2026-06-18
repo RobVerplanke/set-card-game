@@ -15,7 +15,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
   board: [],
   selectedCards: [],
   hintCards: [],
+  foundSet: [],
   hintKey: 0,
+  showInvalidSet: false,
 
   // Score state
   hintsUsed: 0,
@@ -44,18 +46,18 @@ export const useGameStore = create<GameStore>((set, get) => ({
       const isValid = isValidSet(updatedSelection);
 
       if (isValid) {
-        set({ selectedCards: updatedSelection });
+        set({ selectedCards: updatedSelection, foundSet: updatedSelection });
         setTimeout(() => {
           get().replaceCards(updatedSelection);
-          set({ selectedCards: [], hintCards: [] });
+          set({ selectedCards: [], hintCards: [], foundSet: [] });
         }, 1500);
         set((state) => ({
           score: state.score + 1,
         }));
       } else {
-        set({ selectedCards: updatedSelection });
+        set({ selectedCards: updatedSelection, showInvalidSet: true });
         setTimeout(() => {
-          set({ selectedCards: [] });
+          set({ selectedCards: [], showInvalidSet: false });
         }, 1000);
         set((state) => ({
           penalties: state.penalties + 1,

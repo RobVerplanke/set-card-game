@@ -1,0 +1,34 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: rgba(28, 50, 105, 0.7);
+  z-index: 100;
+}
+
+.overlayCard {
+  width: 160px;
+  height: 200px;
+  background-color: #f5f0e8;
+  border: 5px solid #faa70f;
+  border-radius: 12px;
+}
+
+.label {
+  font-size: 4rem;
+  color: #faa70f;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.cards {
+  display: flex;
+  gap: 2rem;
+}
