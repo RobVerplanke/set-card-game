@@ -18,6 +18,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
   foundSet: [],
   hintKey: 0,
   showInvalidSet: false,
+  showScoreAnimation: false,
+  showPenaltyAnimation: false,
 
   // Score state
   hintsUsed: 0,
@@ -46,22 +48,48 @@ export const useGameStore = create<GameStore>((set, get) => ({
       const isValid = isValidSet(updatedSelection);
 
       if (isValid) {
-        set({ selectedCards: updatedSelection, foundSet: updatedSelection });
+        set({
+          selectedCards: updatedSelection,
+          foundSet: updatedSelection,
+          showScoreAnimation: true,
+        });
         setTimeout(() => {
           get().replaceCards(updatedSelection);
-          set({ selectedCards: [], hintCards: [], foundSet: [] });
+          set({
+            selectedCards: [],
+            hintCards: [],
+            foundSet: [],
+          });
         }, 1500);
-        set((state) => ({
-          score: state.score + 1,
-        }));
-      } else {
-        set({ selectedCards: updatedSelection, showInvalidSet: true });
+
         setTimeout(() => {
-          set({ selectedCards: [], showInvalidSet: false });
+          set({
+            showScoreAnimation: false,
+          });
+          set((state) => ({
+            score: state.score + 1,
+          }));
+        }, 2000);
+      } else {
+        set({
+          selectedCards: updatedSelection,
+          showInvalidSet: true,
+          showPenaltyAnimation: true,
+        });
+        setTimeout(() => {
+          set({
+            selectedCards: [],
+            showInvalidSet: false,
+          });
         }, 1000);
-        set((state) => ({
-          penalties: state.penalties + 1,
-        }));
+        setTimeout(() => {
+          set({
+            showPenaltyAnimation: false,
+          });
+          set((state) => ({
+            penalties: state.penalties + 1,
+          }));
+        }, 2000);
       }
       // Empty selected cards after check for valid set
     } else {
@@ -155,7 +183,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
       hintCards: validSet,
       hintKey: state.hintKey + 1,
       hintsUsed: state.hintsUsed + 1,
-      penalties: state.penalties + 1,
       // score: state.score - 1, // Subtract after game
     }));
   },

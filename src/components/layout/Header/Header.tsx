@@ -23,9 +23,9 @@ export default function Header() {
 
       {/* Game information components */}
       <div className={styles.leftSection}>
-        <span className={styles.name}>
+        {/* <span className={styles.name}>
           {constants.HEADER_PLAYER_NAME.toUpperCase()}
-        </span>
+        </span> */}
         <ScoreBoard />
       </div>
       <div className={styles.rightSection}>

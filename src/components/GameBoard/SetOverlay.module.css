@@ -17,13 +17,13 @@
   width: 160px;
   height: 200px;
   background-color: #f5f0e8;
-  border: 5px solid #faa70f;
+  border: 5px solid var(--app-primairy-color-yellow);
   border-radius: 12px;
 }
 
 .label {
   font-size: 4rem;
-  color: #faa70f;
+  color: var(--app-primairy-color-yellow);
   font-weight: 900;
   letter-spacing: 4px;
 }

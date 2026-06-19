@@ -1,13 +1,46 @@
-.score {
+.scoreWrapper {
+  position: relative;
+}
+
+.scoreAnimation {
+  z-index: 200;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translateX(-50%);
+  color: var(--app-primairy-color-yellow);
+  font-size: 8rem;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.penaltyAnimation {
+  z-index: 200;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translateX(-50%);
+  color: var(--header-penalties-color);
+  font-size: 5rem;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.statBlock {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
   color: var(--app-primairy-color-yellow);
 }
 
-.penalties {
-  color: var(--header-penalties-color);
+.statLabel {
+  line-height: 1;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
-.score,
-.penalties {
-  font-size: 1.5rem;
-  font-weight: 900;
+.statValue {
+  line-height: 1;
+  font-size: 5rem;
+  font-weight: 700;
 }

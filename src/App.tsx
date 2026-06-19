@@ -18,6 +18,8 @@ function App() {
         <GameBoard />
       </main>
       <SetOverlay cards={foundSet} visible={foundSet.length === 3} />
+
+      {/* Use Framer motion to display and animate a message after an invalid set is selected*/}
       <AnimatePresence>
         {showInvalidSet && (
           <motion.div

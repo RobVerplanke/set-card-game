@@ -16,4 +16,4 @@ export const NAV_BUTTON_RULES = 'Rules';
 export const NAV_BUTTON_HINT = 'Hint';
 export const PENALTIES_LABEL = 'Penalties';
 export const SCORE_LABEL = 'Score';
-export const TIME_LABEL = 'Time';
+export const TIME_LABEL = 'Time left';

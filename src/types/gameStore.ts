@@ -9,6 +9,8 @@ type GameStore = {
   foundSet: Card[];
   hintKey: number;
   showInvalidSet: boolean;
+  showScoreAnimation: boolean;
+  showPenaltyAnimation: boolean;
 
   // Score state
   hintsUsed: number;

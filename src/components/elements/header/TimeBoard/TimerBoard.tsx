@@ -3,9 +3,9 @@ import * as constants from '../../../../constants/index';
 
 export default function TimeBoard() {
   return (
-    <span className={styles.timer}>
-      {constants.TIME_LABEL.toUpperCase()}
+    <div className={styles.timer}>
+      <span className={styles.label}>{constants.TIME_LABEL.toUpperCase()}</span>
       <span className={styles.time}>00:00</span>
-    </span>
+    </div>
   );
 }
