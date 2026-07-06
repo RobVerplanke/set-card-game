@@ -1,6 +1,6 @@
-import ScoreBoard from '../../elements/header/ScoreBoard/ScoreBoard';
-import TimeBoard from '../../elements/header/TimeBoard/TimerBoard';
-import NavButton from '../../elements/button/NavButton';
+import ScoreBoard from '../../header/ScoreBoard/ScoreBoard';
+import TimerBoard from '../../header/TimerBoard/TimerBoard';
+import NavButton from '../../elements/navButton/NavButton';
 import { useGameStore } from '../../../store/gameStore';
 
 // Truly constants
@@ -29,7 +29,7 @@ export default function Header() {
         <ScoreBoard />
       </div>
       <div className={styles.rightSection}>
-        <TimeBoard />
+        <TimerBoard />
       </div>
 
       {/* Menu button components */}

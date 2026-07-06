@@ -1,5 +1,5 @@
 import styles from '../ScoreBoard/ScoreBoard.module.css';
-import { useGameStore } from '../../../../store/gameStore';
+import { useGameStore } from '../../../store/gameStore';
 import { AnimatePresence, motion } from 'motion/react';
 
 export default function ScoreBoard() {

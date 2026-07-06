@@ -3,7 +3,7 @@ import Header from './components/layout/Header/Header';
 
 import './index.css'; // CSS reset
 import styles from './App.module.css'; // CSS module
-import SetOverlay from './components/GameBoard/SetOverlay';
+import SetOverlay from './components/overlays/SetOverlay';
 import { useGameStore } from './store/gameStore';
 import { AnimatePresence, motion } from 'motion/react';
 

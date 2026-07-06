@@ -1,4 +1,4 @@
-import type { NavButtonProps } from '../../../types/Header';
+import type { NavButtonProps } from '../../../../types/Header';
 import styles from './NavButton.module.css'; // CSS module
 
 export default function NavButton({ label, onClick }: NavButtonProps) {

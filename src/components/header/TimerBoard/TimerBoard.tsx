@@ -1,7 +1,7 @@
-import styles from '../TimeBoard/TimeBoard.module.css';
-import * as constants from '../../../../constants/index';
+import styles from '../TimerBoard/TimerBoard.module.css';
+import * as constants from '../../../constants/index';
 
-export default function TimeBoard() {
+export default function TimerBoard() {
   return (
     <div className={styles.timer}>
       <span className={styles.label}>{constants.TIME_LABEL.toUpperCase()}</span>
